@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    hikari:
+      jdbc-url: jdbc:postgresql://db:5432/cookking
+      driver-class-name: org.postgresql.Driver
+      username: cookking
+      password: cookking!@#
+    url: jdbc:postgresql://db:5432/cookking
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+      ddl-auto: none
