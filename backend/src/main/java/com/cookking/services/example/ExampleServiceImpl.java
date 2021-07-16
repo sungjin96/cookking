@@ -24,15 +24,12 @@ public class ExampleServiceImpl implements ExampleService {
     @Override
     public ExampleDto getExampleById(Long exampleId) {
         Example example = exampleRepository.getById(exampleId);
-
         return exampleMapper.toDto(example);
     }
 
     @Override
     public void saveNewExample(ExampleDto exampleDto) {
         Example example = exampleMapper.toEntity(exampleDto);
-        log.info("LOG ::: "+exampleDto.getContent());
-        log.info("LOG ::: "+example.getContent());
         exampleRepository.save(example);
     }
 
