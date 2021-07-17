@@ -43,11 +43,6 @@ out/
 ### Database ###
 backend/database/data
 
-<<<<<<< HEAD
-front/node_modules/
-front/.expo/
-fonrt/web_build/
-=======
 ### Node ###
 front/node_modules/
 front/.expo/
@@ -65,4 +60,3 @@ front/.DB_Store
 ./**/.DB_Store
 
 
->>>>>>> develop
