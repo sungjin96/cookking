@@ -36,5 +36,27 @@ out/
 ### VS Code ###
 .vscode/
 
+### IntelliJ ###
+.idea
+./**/.idea
+
+### Database ###
 backend/database/data
-backend/database/data
+
+### Node ###
+front/node_modules/
+front/.expo/
+front/npm-debug.*
+front/*.jks
+front/*.p8
+front/*.p12
+front/*.key
+front/*.mobileprovision
+front/*.orig.*
+front/web-build/
+
+.DS_Store
+front/.DB_Store
+./**/.DB_Store
+
+
