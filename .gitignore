@@ -37,4 +37,7 @@ out/
 .vscode/
 
 backend/database/data
-backend/database/data
+
+front/node_modules/
+front/.expo/
+fonrt/web_build/
