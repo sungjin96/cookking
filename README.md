@@ -36,3 +36,11 @@ docker rm -f db
 ---
 # 프론트
 ## 프론트 실행 방법
+
+```
+ cd front; npm i; npx pod-install; npx react-native link; npm start
+ 
+ npm run ios 
+ npm run android
+```
+
