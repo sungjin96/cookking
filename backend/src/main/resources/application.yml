@@ -1,6 +1,32 @@
 spring:
+  profiles:
+    group:
+      "local": "local,common"
+---
+spring:
+  profiles:
+    group:
+      "prod": "prod,common"
+---
+spring:
+  config:
+    activate:
+      on-profile: "prod"
   datasource:
     url: jdbc:postgresql://localhost:5432/cookking
+---
+spring:
+  config:
+    activate:
+      on-profile: "local"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cookking
+---
+spring:
+  config:
+    activate:
+      on-profile: "common"
+  datasource:
     driver-class-name: org.postgresql.Driver
     hikari:
       username: cookking
@@ -20,10 +46,10 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.MariaDBDialect
         format_sql: true
         temp:
           use_jdbc_metadata_defaults: false
@@ -36,4 +62,3 @@ spring:
       org:
         hibernate:
           SQL: debug
-
