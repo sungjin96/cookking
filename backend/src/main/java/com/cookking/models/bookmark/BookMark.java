@@ -1,14 +1,17 @@
-package com.cookking.models.example;
+package com.cookking.models.bookmark;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.sql.Timestamp;
 
 /**
- * Created by marathoner on 2021/07/16.
+ * Created by marathoner on 2021/08/23
  */
 @Getter
 @Setter
@@ -16,14 +19,11 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Example {
-
+public class BookMark {
     @Id
     @GeneratedValue()
     @Column(updatable = false, nullable = false)
     private Long id;
-
-    private String content;
 
     @CreationTimestamp
     @Column(updatable = false)
