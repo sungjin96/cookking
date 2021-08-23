@@ -14,6 +14,10 @@ spring:
       on-profile: "prod"
   datasource:
     url: jdbc:postgresql://localhost:5432/cookking
+
+  jpa:
+    hibernate:
+      ddl-auto: none
 ---
 spring:
   config:
@@ -21,6 +25,10 @@ spring:
       on-profile: "local"
   datasource:
     url: jdbc:postgresql://localhost:5432/cookking
+
+  jpa:
+    hibernate:
+      ddl-auto: create
 ---
 spring:
   config:
@@ -45,11 +53,9 @@ spring:
         maintainTimeStats: false
 
   jpa:
-    hibernate:
-      ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MariaDBDialect
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
         format_sql: true
         temp:
           use_jdbc_metadata_defaults: false

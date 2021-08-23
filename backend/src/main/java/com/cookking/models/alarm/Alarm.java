@@ -31,6 +31,7 @@ public class Alarm {
     private AlarmTypeEnum type;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
     private Member sender;
 
     @CreationTimestamp
