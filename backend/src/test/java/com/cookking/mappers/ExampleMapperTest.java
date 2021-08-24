@@ -2,6 +2,7 @@ package com.cookking.mappers;
 
 import com.cookking.models.example.Example;
 import com.cookking.models.example.ExampleDto;
+import com.cookking.models.example.ExampleMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

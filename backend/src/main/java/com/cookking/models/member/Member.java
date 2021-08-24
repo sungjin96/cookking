@@ -24,6 +24,16 @@ public class Member {
     @Column(updatable = false, nullable = false)
     private Long id;
 
+    @Column(unique = true)
+    private String email;
+
+    @Column(unique = true)
+    private String nickName;
+
+    private LoginType loginType;
+
+    private String token;
+
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdAt;

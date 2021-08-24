@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import java.sql.Timestamp;
 import java.time.OffsetDateTime;
 
 /**
@@ -24,9 +26,12 @@ public class ExampleDto {
     private String content;
 
     @Null
-    private OffsetDateTime createdDate;
+    private Timestamp createdAt;
 
     @Null
-    private OffsetDateTime lastModifiedDate;
+    private Timestamp updatedAt;
+
+    @Null
+    private Timestamp deletedAt;
 
 }

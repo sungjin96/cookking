@@ -1,8 +1,11 @@
-package com.cookking.controllers.v1.example;
+package com.cookking.controllers.v1.member;
 
-import com.cookking.models.example.ExampleDto;
-import org.junit.jupiter.api.Test;
+import com.cookking.models.member.LoginType;
+import com.cookking.models.member.dto.CreateMemberDto;
+import com.cookking.models.member.dto.UpdateMemberDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,7 +22,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 @AutoConfigureMockMvc
-class ExampleControllerTest {
+class MemberControllerTest {
+
+    private final String URL = "/api/v1/member/";
 
     @Autowired
     MockMvc mockMvc;
@@ -27,35 +32,51 @@ class ExampleControllerTest {
     ObjectMapper objectMapper;
 
     @Test
-    void getExampleById() throws Exception{
-        mockMvc.perform(get("/api/v1/example/" + 1L).accept(MediaType.APPLICATION_JSON))
+    @DisplayName("존재하는 멤버 아이디로 조회")
+    void getMemberById() throws Exception {
+        mockMvc.perform(get(URL + 1L).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
-    void saveNewExample() throws Exception {
-        String exampleDtoJson = objectMapper.writeValueAsString(getExample());
+    @DisplayName("존재하는 멤버 아이디로 조회")
+    void getMemberByNoneId() throws Exception {
+        mockMvc.perform(get(URL + 999L).accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
 
-        mockMvc.perform(post("/api/v1/example/")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(exampleDtoJson))
+    @Test
+    @DisplayName("이메일로 1차 생성")
+    void saveNewExample() throws Exception {
+        String createMemberDtoJson = objectMapper.writeValueAsString(getCreateMemberDto());
+
+        mockMvc.perform(post(URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(createMemberDtoJson))
                 .andExpect(status().isCreated());
     }
 
     @Test
     void updateExampleById() throws Exception {
-        String exampleDtoJson = objectMapper.writeValueAsString(getExample());
+        String updateMemberDtoJson = objectMapper.writeValueAsString(getUpdateMemberDto());
 
-        mockMvc.perform(put("/api/v1/example/" + 1L)
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(exampleDtoJson))
+        mockMvc.perform(put(URL + 1L)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(updateMemberDtoJson))
                 .andExpect(status().isNoContent());
     }
 
-    private ExampleDto getExample() {
-        return ExampleDto.builder()
-                .id(2L)
-                .content("My Second Example")
+    private CreateMemberDto getCreateMemberDto() {
+        return CreateMemberDto.builder()
+                .email("test@gmail.com")
+                .loginType(LoginType.NATIVE)
+                .build();
+    }
+
+    private UpdateMemberDto getUpdateMemberDto() {
+        return UpdateMemberDto.builder()
+                .id(1L)
+                .nickName("HELLLLLOOOOOOOO")
                 .build();
     }
 

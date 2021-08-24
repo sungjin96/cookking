@@ -1,6 +1,11 @@
-package com.cookking.controllers.v1.example;
+package com.cookking.controllers.v1.member;
 
 import com.cookking.models.example.ExampleDto;
+import com.cookking.models.member.dto.CreateMemberDto;
+import com.cookking.models.member.dto.MemberDto;
+import com.cookking.models.member.dto.UpdateMemberDto;
+import com.cookking.services.Member.MemberService;
+import com.cookking.services.Member.MemberServiceImpl;
 import com.cookking.services.example.ExampleService;
 import com.cookking.services.example.ExampleServiceImpl;
 import org.springframework.http.HttpStatus;
@@ -8,36 +13,34 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
-
 /**
  * Created by marathoner on 2021/07/16.
  */
-@RequestMapping("/api/v1/example")
+@RequestMapping("/api/v1/member")
 @RestController
-public class ExampleController {
+public class MemberController {
 
-    private final ExampleService exampleService;
+    private final MemberService memberService;
 
-    public ExampleController(ExampleServiceImpl exampleServiceImpl) {
-        this.exampleService = exampleServiceImpl;
+    public MemberController(MemberServiceImpl memberServiceImpl) {
+        this.memberService = memberServiceImpl;
     }
 
-    @GetMapping("/{exampleId}")
-    public ResponseEntity<ExampleDto> getExampleById(@PathVariable("exampleId") Long exampleId) {
-        ExampleDto exampleDto = exampleService.getExampleById(exampleId);
-        return new ResponseEntity<>(exampleDto, HttpStatus.OK);
+    @GetMapping("/{memberId}")
+    public ResponseEntity<MemberDto> getExampleById(@PathVariable("memberId") Long memberId) {
+        MemberDto memberDto = memberService.findById(memberId);
+        return new ResponseEntity<MemberDto>(memberDto, HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity saveNewExample(@RequestBody @Validated ExampleDto exampleDto) {
-        exampleService.saveNewExample(exampleDto);
+    public ResponseEntity saveNewExample(@RequestBody @Validated CreateMemberDto createMemberDto) {
+        memberService.create(createMemberDto);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
-    @PutMapping("/{exampleId}")
-    public ResponseEntity updateExampleById(@PathVariable("exampleId") Long exampleId, @RequestBody @Validated ExampleDto exampleDto) {
-        exampleService.updateExampleById(exampleId, exampleDto);
+    @PutMapping("/{memberId}")
+    public ResponseEntity updateExampleById(@PathVariable("memberId") Long memberId, @RequestBody @Validated UpdateMemberDto updateMemberDto) {
+        memberService.update(memberId, updateMemberDto);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }

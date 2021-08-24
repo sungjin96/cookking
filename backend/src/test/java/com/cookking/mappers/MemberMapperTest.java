@@ -3,31 +3,33 @@ package com.cookking.mappers;
 import com.cookking.models.example.Example;
 import com.cookking.models.example.ExampleDto;
 import com.cookking.models.example.ExampleMapper;
+import com.cookking.models.member.Member;
+import com.cookking.models.member.dto.CreateMemberDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Created by marathoner on 2021/07/16.
  */
 
 @SpringBootTest
-class ExampleMapperTest {
+class MemberMapperTest {
 
     @Autowired
-   private ExampleMapper exampleMapper;
+    private CreateMemberMapper createMemberMapper;
 
     @Test
     void dtoToEntity() {
-        ExampleDto dto = ExampleDto
+        CreateMemberDto dto = CreateMemberDto
                 .builder()
-                .content("Hello")
+                .email("test@gmail.com")
                 .build();
 
-        Example example = exampleMapper.toEntity(dto);
+        Member member = createMemberMapper.toEntity(dto);
 
-        assertEquals(dto.getContent(), example.getContent());
+        assertEquals(dto.getEmail(), member.getEmail());
     }
 }
