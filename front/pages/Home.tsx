@@ -10,7 +10,7 @@ function Home() {
 	return (
 		<Container>
 			<Text>Home</Text>
-			<Btn primary_1 round_5 onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })}>
+			<Btn primary_3 round_5 onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })}>
 				<BtnCont primary>카운터로</BtnCont>
 			</Btn>
 		</Container>

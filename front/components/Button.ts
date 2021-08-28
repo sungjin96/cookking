@@ -1,4 +1,13 @@
 import styled, { css } from 'styled-components/native';
+// 나중에 전역으로 적용할 수 있는 방법을 찾은 뒤 위치를 이동시켜야함. 일단 테스트용으로 폰트를 여기에 추가함.
+import * as Font from 'expo-font';
+
+Font.loadAsync({
+	'NotoSansKR-Bold': require('../assets/font/NotoSansKR-Bold.otf'),
+	'NotoSansKR-Medium': require('../assets/font/NotoSansKR-Medium.otf'),
+	'NotoSansKR-Regular': require('../assets/font/NotoSansKR-Regular.otf'),
+	'NotoSansKR-Light': require('../assets/font/NotoSansKR-Light.otf')
+});
 
 // injectGlobal`
 // 	body {
@@ -30,7 +39,7 @@ interface StyledBtnProps {
 }
 
 export const Btn = styled.TouchableOpacity<StyledBtnProps>`
-align-items: center;
+	align-items: center;
 	justify-content: center;
 	height: 32px;
 	border-radius: 8px;
@@ -64,7 +73,8 @@ export const BtnCont = styled.Text`
 	font-size: 14px;
 	font-weight: 500;
 	letter-spacing: -.05em;
-	color: ${props => (props.primary_3 ? "#515151" : "#ffffff")};
+	fontFamily: 'NotoSansKR-Regular'
+	color: ${props => (props.primary_3 ? "#ffffff" : "#515151")};
 `
 
 // export const BtnCont = Btn.withComponent('Text')`
