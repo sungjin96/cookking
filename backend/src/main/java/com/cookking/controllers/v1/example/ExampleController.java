@@ -25,19 +25,19 @@ public class ExampleController {
 
     @GetMapping("/{exampleId}")
     public ResponseEntity<ExampleDto> getExampleById(@PathVariable("exampleId") Long exampleId) {
-        ExampleDto exampleDto = exampleService.getExampleById(exampleId);
+        ExampleDto exampleDto = exampleService.findById(exampleId);
         return new ResponseEntity<>(exampleDto, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity saveNewExample(@RequestBody @Validated ExampleDto exampleDto) {
-        exampleService.saveNewExample(exampleDto);
+        exampleService.save(exampleDto);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PutMapping("/{exampleId}")
     public ResponseEntity updateExampleById(@PathVariable("exampleId") Long exampleId, @RequestBody @Validated ExampleDto exampleDto) {
-        exampleService.updateExampleById(exampleId, exampleDto);
+        exampleService.update(exampleId, exampleDto);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 }
