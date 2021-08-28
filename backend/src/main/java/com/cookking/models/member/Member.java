@@ -1,6 +1,7 @@
 package com.cookking.models.member;
 
 import com.cookking.models.alarm.Alarm;
+import com.cookking.models.search.Search;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -35,4 +36,7 @@ public class Member {
 
     @OneToMany(mappedBy = "sender")
     private List<Alarm> alarms;
+
+    @OneToMany(mappedBy = "member")
+    private List<Search> searches;
 }

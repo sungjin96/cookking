@@ -1,13 +1,11 @@
 package com.cookking.models.search;
 
+import com.cookking.models.member.Member;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -25,12 +23,13 @@ public class Search {
     @Column(updatable = false, nullable = false)
     private Long id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Member member;
+
+    private String content;
+
     @CreationTimestamp
     @Column(updatable = false)
     private Timestamp createdAt;
 
-    @UpdateTimestamp
-    private Timestamp updatedAt;
-
-    private Timestamp deletedAt;
 }

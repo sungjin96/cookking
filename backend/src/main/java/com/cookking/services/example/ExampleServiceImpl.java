@@ -13,7 +13,6 @@ import java.util.UUID;
 /**
  * Created by marathoner on 2021/07/16.
  */
-@Slf4j
 @RequiredArgsConstructor
 @Service
 public class ExampleServiceImpl implements ExampleService {
