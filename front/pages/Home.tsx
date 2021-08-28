@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '../components/Container'
-import Button from '../components/Button'
+import { Btn, BtnCont } from '../components/Button'
+// import Input from '../components/TextInput'
 import { Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
@@ -9,7 +10,9 @@ function Home() {
 	return (
 		<Container>
 			<Text>Home</Text>
-			<Button title="카운터로" onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })} />
+			<Btn primary_1 round_5 onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })}>
+				<BtnCont primary>카운터로</BtnCont>
+			</Btn>
 		</Container>
 	)
 }
