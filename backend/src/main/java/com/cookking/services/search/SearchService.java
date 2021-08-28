@@ -10,7 +10,7 @@ import java.util.List;
  * Created by marathoner on 2021/08/28
  */
 public interface SearchService {
-    public void create(CreateSearchDto createSearchDto);
+    public CreateSearchDto create(CreateSearchDto createSearchDto);
     public SearchDto findByMemberId(Long memberId);
     public List<SearchDto> findAll();
 }

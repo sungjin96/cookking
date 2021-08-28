@@ -25,9 +25,10 @@ public class SearchServiceImpl implements SearchService {
     private final SearchMapper searchMapper;
 
     @Override
-    public void create(CreateSearchDto createSearchDto) {
+    public CreateSearchDto create(CreateSearchDto createSearchDto) {
         Search search = createSearchMapper.toEntity(createSearchDto);
-        searchRepository.save(search);
+        Search result = searchRepository.save(search);
+       return createSearchMapper.toDto(result);
     }
 
     @Override
