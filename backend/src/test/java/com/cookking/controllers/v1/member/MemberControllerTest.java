@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestConstructor;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -19,12 +20,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 /**
  * Created by marathoner on 2021/07/16.
  */
+@ActiveProfiles(profiles = {"local"})
 @SpringBootTest
 @TestConstructor(autowireMode = TestConstructor.AutowireMode.ALL)
 @AutoConfigureMockMvc
 class MemberControllerTest {
 
     private final String URL = "/api/v1/member/";
+    private final Long FIRST_ID = 2L;
 
     @Autowired
     MockMvc mockMvc;
@@ -34,15 +37,15 @@ class MemberControllerTest {
     @Test
     @DisplayName("존재하는 멤버 아이디로 조회")
     void getMemberById() throws Exception {
-        mockMvc.perform(get(URL + 1L).accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(get(URL + FIRST_ID).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @DisplayName("존재하는 멤버 아이디로 조회")
+    @DisplayName("존재하는 멤버 아이디로 조회 - 없는 아이디로 조회")
     void getMemberByNoneId() throws Exception {
         mockMvc.perform(get(URL + 999L).accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk());
+                .andExpect(status().isBadRequest());
     }
 
     @Test
@@ -57,10 +60,12 @@ class MemberControllerTest {
     }
 
     @Test
+    @DisplayName("멤머 아이디로 닉네임 수정")
     void updateExampleById() throws Exception {
-        String updateMemberDtoJson = objectMapper.writeValueAsString(getUpdateMemberDto());
+        UpdateMemberDto updateMemberDto = getUpdateMemberDto();
+        String updateMemberDtoJson = objectMapper.writeValueAsString(updateMemberDto);
 
-        mockMvc.perform(put(URL + 1L)
+        mockMvc.perform(put(URL + FIRST_ID)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(updateMemberDtoJson))
                 .andExpect(status().isNoContent());
@@ -75,7 +80,7 @@ class MemberControllerTest {
 
     private UpdateMemberDto getUpdateMemberDto() {
         return UpdateMemberDto.builder()
-                .id(1L)
+                .id(FIRST_ID)
                 .nickName("HELLLLLOOOOOOOO")
                 .build();
     }

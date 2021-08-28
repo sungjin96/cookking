@@ -6,13 +6,14 @@ import com.cookking.models.example.ExampleMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Created by marathoner on 2021/07/16.
  */
-
+@ActiveProfiles(profiles = {"local"})
 @SpringBootTest
 class ExampleMapperTest {
 

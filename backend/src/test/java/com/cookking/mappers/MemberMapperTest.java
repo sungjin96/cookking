@@ -8,6 +8,7 @@ import com.cookking.models.member.dto.CreateMemberDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,6 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Created by marathoner on 2021/07/16.
  */
 
+@ActiveProfiles(profiles = {"local"})
 @SpringBootTest
 class MemberMapperTest {
 
