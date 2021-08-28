@@ -38,7 +38,7 @@ interface StyledBtnProps {
 
 }
 
-export const Btn = styled.TouchableOpacity<StyledBtnProps>`
+const Btn = styled.TouchableOpacity<StyledBtnProps>`
 	align-items: center;
 	justify-content: center;
 	height: 32px;
@@ -83,3 +83,5 @@ export const BtnCont = styled.Text`
 // 	letter-spacing: -.05em;
 // 	color: ${props => (props.primary_3 ? "#ffffff" : "#515151")};
 // `
+
+export default Btn

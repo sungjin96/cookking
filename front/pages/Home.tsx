@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../components/Container'
-import { Btn, BtnCont } from '../components/Button'
+import Btn, { BtnCont } from '../components/Button'
 // import Input from '../components/TextInput'
 import { Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
