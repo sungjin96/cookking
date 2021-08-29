@@ -1,87 +1,63 @@
 import styled, { css } from 'styled-components/native';
-// 나중에 전역으로 적용할 수 있는 방법을 찾은 뒤 위치를 이동시켜야함. 일단 테스트용으로 폰트를 여기에 추가함.
-import * as Font from 'expo-font';
+import { COLORS, FONTSIZES, FONTS } from '../constants'
 
-Font.loadAsync({
-	'NotoSansKR-Bold': require('../assets/font/NotoSansKR-Bold.otf'),
-	'NotoSansKR-Medium': require('../assets/font/NotoSansKR-Medium.otf'),
-	'NotoSansKR-Regular': require('../assets/font/NotoSansKR-Regular.otf'),
-	'NotoSansKR-Light': require('../assets/font/NotoSansKR-Light.otf')
-});
-
-// injectGlobal`
-// 	body {
-// 		padding: 30px;
-// 	}
-// `
 interface StyledBtnProps {
 	// color
-	primary_1? : boolean;
-	primary_2? : boolean;
-	primary_3? : boolean;
+	primary_500? : boolean;
+	primary_600? : boolean;
+	primary_700? : boolean;
 
 	// type
 	text? : boolean;
+	bottomFixed? : boolean;
 
-	// round
-	round_0? : boolean;
-	round_1? : boolean;
-	round_2? : boolean;
-	round_3? : boolean;
-	round_4? : boolean;
-	round_5? : boolean;
+	// round : 기본 solid
+	round? : boolean;
 
 	// height
-	height_1? : boolean;
-	height_3? : boolean;
-	height_4? : boolean;
+	large? : boolean;
+	// medium? : boolean;
+	small? : boolean;
 
 }
 
-const Btn = styled.TouchableOpacity<StyledBtnProps>`
+interface StyledBtnContProps {
+	white? : boolean;
+	disabled? : boolean;
+}
+
+export const ButtonText = styled.Text<StyledBtnContProps>`
+	${FONTS.fontMedium};
+	font-size: ${FONTSIZES.body3}px;
+	color: ${props => (props.white ? `${COLORS.white}` : `${COLORS.gray_700}`)};
+`
+
+const Button = styled.TouchableOpacity<StyledBtnProps>`
+	width: 100%;
+	flex: 1;
 	align-items: center;
 	justify-content: center;
-	height: 32px;
-	border-radius: 8px;
-	background-color: #eeeeee;
+	min-height: 32px;
+	max-height: 32px;
+	border-radius: 4px;
+	background-color: ${COLORS.gray_200};
 
-	${props => props.primary_1 && css` background-color: red; `}
-	${props => props.primary_2 && css` background-color: #49b792;	`}
-	${props => props.primary_3 && css && css`
-		background-color: #289a7e;
+	${props => props.primary_700 && css` background-color: ${COLORS.primary_700};`}
+	${props => props.primary_600 && css` background-color: ${COLORS.primary_600};`}
+	${props => props.primary_500 && css && css
+	` background-color: ${COLORS.primary_500};`}
+
+	${props => props.text && css` ${COLORS.transparent}`}
+	${props => props.bottomFixed && css`
+		margin: 0 -16px;
+		max-height: 60px;
+		border-radius: 0;
 	`}
 
-	${props => props.text && css` background-color: transparent; `}
+	${props => props.round && css` border-radius: 50px;`}
 
-	${props => props.round_0 && css` border-radius: 0; `}
-	${props => props.round_1 && css` border-radius: 3px; `}
-	${props => props.round_3 && css` border-radius: 8px; `}
-	${props => props.round_5 && css` border-radius: 16px;	`}
-
-	${props => props.height_1 && css`
-		height: 22px;
-	`}
-	${props => props.height_3 && css`
-		height: 45px;
-	`}
-	${props => props.height_4 && css`
-		height: 60px;
-	`}
+	${props => props.large && css` max-height: 45px; `}
+	${props => props.small && css`max-height: 22px; `}
 `
 
-export const BtnCont = styled.Text`
-	font-size: 14px;
-	font-weight: 500;
-	letter-spacing: -.05em;
-	fontFamily: 'NotoSansKR-Regular'
-	color: ${props => (props.primary_3 ? "#ffffff" : "#515151")};
-`
-
-// export const BtnCont = Btn.withComponent('Text')`
-// 	font-size: 14px;
-// 	font-weight: 500;
-// 	letter-spacing: -.05em;
-// 	color: ${props => (props.primary_3 ? "#ffffff" : "#515151")};
-// `
-
-export default Btn
+export default Button
