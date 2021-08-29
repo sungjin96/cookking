@@ -1,6 +1,8 @@
 import styled, {css} from 'styled-components/native';
 import {COLORS, FONTSIZES, FONTS} from '../constants'
 
+
+// TODO: 프롭스 더 효율적이고 편해게 쓰는 방법?
 type ButtonPropsType = {
     color?: keyof typeof COLORS
 }
@@ -8,6 +10,7 @@ type ButtonPropsType = {
 const StyleExampleTextButton = styled.TouchableOpacity<ButtonPropsType>`
   ${({color}) => color && css`background-color: ${COLORS[color]}`}
 `
+// ==============================================================
 
 interface StyledBtnProps {
     // color
