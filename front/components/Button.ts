@@ -1,6 +1,14 @@
 import styled, { css } from 'styled-components/native';
 import { COLORS, FONTSIZES, FONTS } from '../constants'
 
+type ButtonPropsType = {
+	color?: keyof typeof COLORS
+}
+
+const StyleExampleTextButton = styled.TouchableOpacity<ButtonPropsType>`
+	${({color}) => color && COLORS[color]}
+`
+
 interface StyledBtnProps {
 	// color
 	primary_500? : boolean;
