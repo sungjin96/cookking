@@ -64,10 +64,12 @@ export const FONTSIZES = {
 
 // 너무 헷갈리면 그냥 사용하지 않기로
 export const FONTS = {
+    // 폰트 굵기
     fontBold: { fontFamily: 'NotoSansKR-Bold', letterSpacing: '-0.05em'},
     fontMedium: { fontFamily: 'NotoSansKR-Medium', letterSpacing: '-0.05em' },
     fontLegular: { fontFamily: 'NotoSansKR-Legular', letterSpacing: '-0.05em' },
     fontLight: { fontFamily: 'NotoSansKR-Light', letterSpacing: '-0.05em' },
+
     // 타이틀
     largestTitle: { fontFamily: 'NotoSansKR-Bold', fontSize: FONTSIZES.largestTitle }, // 22
     mainTitle: { fontFamily: 'NotoSansKR-Bold', fontSize: FONTSIZES.mainTitle }, // 20

@@ -16,13 +16,12 @@ export default function App() {
 
 	if (!fontsLoaded) {
 		return <>로딩중..</>
-	} else {
-		return (
-			<RecoilRoot>
-				<NavigationContainer>
-					<AppNavigator />
-				</NavigationContainer>
-			</RecoilRoot>
-		)
-	}
+	} 
+	return (
+		<RecoilRoot>
+			<NavigationContainer>
+				<AppNavigator />
+			</NavigationContainer>
+		</RecoilRoot>
+	)
 }

@@ -33,12 +33,11 @@ export const ButtonText = styled.Text<StyledBtnContProps>`
 `
 
 const Button = styled.TouchableOpacity<StyledBtnProps>`
-	width: 100%;
-	flex: 1;
+	width: auto;
+	padding: 0 8px; 
 	align-items: center;
 	justify-content: center;
-	min-height: 32px;
-	max-height: 32px;
+	height: 32px;
 	border-radius: 4px;
 	background-color: ${COLORS.gray_200};
 
@@ -50,14 +49,14 @@ const Button = styled.TouchableOpacity<StyledBtnProps>`
 	${props => props.text && css` ${COLORS.transparent}`}
 	${props => props.bottomFixed && css`
 		margin: 0 -16px;
-		max-height: 60px;
+		height: 60px;
 		border-radius: 0;
 	`}
 
 	${props => props.round && css` border-radius: 50px;`}
 
-	${props => props.large && css` max-height: 45px; `}
-	${props => props.small && css`max-height: 22px; `}
+	${props => props.large && css` height: 45px; `}
+	${props => props.small && css`height: 22px; `}
 `
 
 export default Button
