@@ -3,15 +3,16 @@ import Button from './Button'
 
 
 interface StyledBtnWrapProps {
-	vertical? : boolean
+	vertical?: boolean
 }
 
 // 버튼 wrapper
 const ButtonWrap = styled.View<StyledBtnWrapProps>`
-	display: flex;
+	flex: none;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	margin: 0 -4px;
 
 	${props => props.vertical && css`
 	flex-direction: column;
