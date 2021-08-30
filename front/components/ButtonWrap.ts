@@ -8,13 +8,13 @@ interface StyledBtnWrapProps {
 
 // 버튼 wrapper
 const ButtonWrap = styled.View<StyledBtnWrapProps>`
-	display: flex;
+	flex: none;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-
+	margin: 0 -4px;
 	${props => props.vertical && css`
-	flex-direction: column;
+		flex-direction: column;
     `}
 `;
 

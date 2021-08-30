@@ -14,8 +14,8 @@ function Home() {
 			<Text>Home</Text>
 			<ButtonWrap>
 				<Button
-					color="primary_500" 
-					size="large"
+					BackgroundColor="primary500" 
+					heightSize="large"
 					round
 					onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })}
 				>
@@ -23,15 +23,15 @@ function Home() {
 				</Button>
 
 				<Button
-					color="primary_600"
+					BackgroundColor="primary600"
 					onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })}
 				>
 					<ButtonText white>카운터로</ButtonText>
 				</Button>
 
 				<Button
-					color="primary_700"
-					size="small"
+					BackgroundColor="primary700"
+					heightSize="small"
 					onPress={() => navigation.navigate('Search', { title: '홈에서 눌렀다 임마!' })}
 				>
 					<ButtonText white>서치로</ButtonText>

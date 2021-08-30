@@ -11,7 +11,7 @@ const ButtonSize = {
 // 효율적이고 간편한 방법으로 계속 개선할 예정
 type ButtonPropsType = {
     // color
-    color?: keyof typeof COLORS
+    BackgroundColor?: keyof typeof COLORS
 
     // type
     text?: boolean;
@@ -21,7 +21,7 @@ type ButtonPropsType = {
     round?: boolean;
 
     // size : 기본 32 (medium)
-    size?: keyof typeof ButtonSize
+    heightSize?: keyof typeof ButtonSize
 }
 
 interface ButtonContPropsType {
@@ -30,17 +30,19 @@ interface ButtonContPropsType {
 }
 
 const Button = styled.TouchableOpacity<ButtonPropsType>`
+  flex: 1;
   width: auto;
-  padding: 0 8px;
+  margin: 0 4px;
+  padding: 0 8px; 
   align-items: center;
   justify-content: center;
   height: 32px;
   border-radius: 4px;
   background-color: ${COLORS.gray_200};
 
-  ${({color}) => color && css`background-color: ${COLORS[color]}`};
+  ${({BackgroundColor}) => BackgroundColor && css`background-color: ${COLORS[BackgroundColor]}`};
 
-  ${({size}) => size && css`height: ${ButtonSize[size]}px`};
+  ${({heightSize}) => heightSize && css`height: ${ButtonSize[heightSize]}px`};
 
   ${props => props.text && css` ${COLORS.transparent}`};
   ${props => props.bottomFixed && css`

@@ -18,19 +18,19 @@ function Chips() {
 		margin-right: 8px;
 		background-color: ${COLORS.white};
 		border-radius: 50px;
-		border: 1px solid ${COLORS.gray_200};
+		border: 1px solid ${COLORS.gray200};
 		${props => props.checkedTest && css`
-			background-color: ${COLORS.primary_100};
-			border: 1px solid ${COLORS.primary_700};
+			background-color: ${COLORS.primary100};
+			border: 1px solid ${COLORS.primary700};
 		`}
 	`
 	const ChipsText = styled.Text<CheckedProps>`
 		${FONTS.fontLegular};
 		font-size: ${FONTSIZES.body3}px;
-		color: ${COLORS.gray_700};
+		color: ${COLORS.gray700};
 		${props => props.checkedTest && css`
 			${FONTS.fontMedium};
-			color: ${COLORS.primary_700};
+			color: ${COLORS.primary700};
 		`}
 	`
 
@@ -41,7 +41,7 @@ function Chips() {
     }
 
 	return (
-		<Chips onPress={() => handleToggle()} checkedTest={checked}>
+		<Chips onPress={handleToggle} checkedTest={checked}>
 			<ChipsText checkedTest={checked}>여기에 값이 들어감</ChipsText>
 		</Chips>
 	);
