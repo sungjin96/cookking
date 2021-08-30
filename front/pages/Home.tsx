@@ -12,13 +12,27 @@ function Home() {
 		<Container>
 			<Text>Home</Text>
 			<ButtonWrap>
-				<Button primary_700 round large onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })}>
+				<Button
+					color="primary_500" 
+					size="large"
+					round
+					onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })}
+				>
 					<ButtonText white>카운터로</ButtonText>
 				</Button>
-				<Button primary_600 onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })}>
+
+				<Button
+					color="primary_600"
+					onPress={() => navigation.navigate('Count', { title: '홈에서 눌렀다 임마!' })}
+				>
 					<ButtonText white>카운터로</ButtonText>
 				</Button>
-				<Button primary_500 small onPress={() => navigation.navigate('Search', { title: '홈에서 눌렀다 임마!' })}>
+
+				<Button
+					color="primary_700"
+					size="small"
+					onPress={() => navigation.navigate('Search', { title: '홈에서 눌렀다 임마!' })}
+				>
 					<ButtonText white>서치로</ButtonText>
 				</Button>
 			</ButtonWrap>

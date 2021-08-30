@@ -9,7 +9,9 @@ function Search() {
 	return (
 		<Container>
 			<Text>Search</Text>
-			<Button onPress={() => navigation.navigate('Count', { title: '서치에서 눌렀다 임마!' })}>
+			<Button
+				onPress={() => navigation.navigate('Count', { title: '서치에서 눌렀다 임마!' })}
+			>
 				<ButtonText>카운터로</ButtonText>
 			</Button>
 		</Container>

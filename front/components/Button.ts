@@ -2,21 +2,16 @@ import styled, {css} from 'styled-components/native';
 import {COLORS, FONTSIZES, FONTS} from '../constants'
 
 
-// TODO: 프롭스 더 효율적이고 편해게 쓰는 방법?
-type ButtonPropsType = {
-    color?: keyof typeof COLORS
+const ButtonSize = {
+  large: 40,
+  medium: 32,
+  small: 22
 }
 
-const StyleExampleTextButton = styled.TouchableOpacity<ButtonPropsType>`
-  ${({color}) => color && css`background-color: ${COLORS[color]}`}
-`
-// ==============================================================
-
-interface StyledBtnProps {
+// 효율적이고 간편한 방법으로 계속 개선할 예정
+type ButtonPropsType = {
     // color
-    primary_500?: boolean;
-    primary_600?: boolean;
-    primary_700?: boolean;
+    color?: keyof typeof COLORS
 
     // type
     text?: boolean;
@@ -25,25 +20,16 @@ interface StyledBtnProps {
     // round : 기본 solid
     round?: boolean;
 
-    // height
-    large?: boolean;
-    // medium? : boolean;
-    small?: boolean;
-
+    // size : 기본 32 (medium)
+    size?: keyof typeof ButtonSize
 }
 
-interface StyledBtnContProps {
+interface ButtonContPropsType {
     white?: boolean;
     disabled?: boolean;
 }
 
-export const ButtonText = styled.Text<StyledBtnContProps>`
-  ${FONTS.fontMedium};
-  font-size: ${FONTSIZES.body3}px;
-  color: ${props => (props.white ? `${COLORS.white}` : `${COLORS.gray_700}`)};
-`
-
-const Button = styled.TouchableOpacity<StyledBtnProps>`
+const Button = styled.TouchableOpacity<ButtonPropsType>`
   width: auto;
   padding: 0 8px;
   align-items: center;
@@ -52,22 +38,24 @@ const Button = styled.TouchableOpacity<StyledBtnProps>`
   border-radius: 4px;
   background-color: ${COLORS.gray_200};
 
-  ${props => props.primary_700 && css` background-color: ${COLORS.primary_700};`}
-  ${props => props.primary_600 && css` background-color: ${COLORS.primary_600};`}
-  ${props => props.primary_500 && css && css
-          ` background-color: ${COLORS.primary_500};`}
+  ${({color}) => color && css`background-color: ${COLORS[color]}`};
 
-  ${props => props.text && css` ${COLORS.transparent}`}
+  ${({size}) => size && css`height: ${ButtonSize[size]}px`};
+
+  ${props => props.text && css` ${COLORS.transparent}`};
   ${props => props.bottomFixed && css`
     margin: 0 -16px;
     height: 60px;
     border-radius: 0;
   `}
-
-  ${props => props.round && css` border-radius: 50px;`}
-
-  ${props => props.large && css` height: 45px; `}
-  ${props => props.small && css`height: 22px; `}
+  ${props => props.round && css`border-radius: 50px`};
 `
 
-export default Button
+export const ButtonText = styled.Text<ButtonContPropsType>`
+  ${FONTS.fontMedium};
+  font-size: ${FONTSIZES.body3}px;
+  color: ${props => (props.white ? `${COLORS.white}` : `${COLORS.gray_700}`)};
+`
+
+
+export default Button;

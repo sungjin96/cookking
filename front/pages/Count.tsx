@@ -45,7 +45,11 @@ function Count() {
 					</ActionButton>
 				</Row>
 			</Container>
-			<Button bottomFixed primary_700 onPress={() => navigation.goBack()}>
+			<Button
+				color="primary_700" 
+				bottomFixed
+				onPress={() => navigation.goBack()}
+			>
 				<ButtonText white>뒤로가기</ButtonText>
 			</Button>
 		</Container>
