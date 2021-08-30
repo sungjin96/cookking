@@ -3,6 +3,7 @@ import Container from '../components/Container'
 import Button, { ButtonText } from '../components/Button'
 import ButtonWrap from '../components/ButtonWrap'
 // import Input from '../components/TextInput'
+import Chips from '../components/SelectChips'
 import { Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 
@@ -36,6 +37,13 @@ function Home() {
 					<ButtonText white>서치로</ButtonText>
 				</Button>
 			</ButtonWrap>
+
+			{/* 임시로 ButtonWrap을 wrapper로 사용 */}
+			<ButtonWrap>
+				<Chips/>
+				<Chips/>
+			</ButtonWrap>
+
 		</Container>
 	)
 }

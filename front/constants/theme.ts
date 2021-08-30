@@ -67,7 +67,7 @@ export const FONTS = {
     // 폰트 굵기
     fontBold: { fontFamily: 'NotoSansKR-Bold', letterSpacing: '-0.05em'},
     fontMedium: { fontFamily: 'NotoSansKR-Medium', letterSpacing: '-0.05em' },
-    fontLegular: { fontFamily: 'NotoSansKR-Legular', letterSpacing: '-0.05em' },
+    fontLegular: { fontFamily: 'NotoSansKR-Regular', letterSpacing: '-0.05em' },
     fontLight: { fontFamily: 'NotoSansKR-Light', letterSpacing: '-0.05em' },
 
     // 타이틀
@@ -77,15 +77,15 @@ export const FONTS = {
     subTitle: { fontFamily: 'NotoSansKR-Medium', fontSize: FONTSIZES.subTitle }, // 15
 
     // 서브텍스트 (info text)
-    largestSubText: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body1, color: COLORS.gray_700 }, // 17
-    subText: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body4, color: COLORS.gray_600 }, // 13
-    smallestSubText: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body5, color: COLORS.gray_400 }, // 12
+    largestSubText: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body1, color: COLORS.gray_700 }, // 17
+    subText: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body4, color: COLORS.gray_600 }, // 13
+    smallestSubText: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body5, color: COLORS.gray_400 }, // 12
 
     // default
-    default: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body2, color: COLORS.black }, // 15 + #222222
-    defaultGray: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body2, color: COLORS.gray_700 }, // 15 + #515151
-    smallestDefault: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body3, color: COLORS.black }, // 14 + #222222
-    smallestDefaultGray: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body3, color: COLORS.gray_700 }, // 14 + #515151
+    default: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body2, color: COLORS.black, letterSpacing: '-0.05em' }, // 15 + #222222
+    defaultGray: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body2, color: COLORS.gray_700, letterSpacing: '-0.05em' }, // 15 + #515151
+    smallestDefault: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body3, color: COLORS.black, letterSpacing: '-0.05em' }, // 14 + #222222
+    smallestDefaultGray: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body3, color: COLORS.gray_700, letterSpacing: '-0.05em' }, // 14 + #515151
 };
 
 const appTheme = { COLORS, FONTSIZES, FONTS };
