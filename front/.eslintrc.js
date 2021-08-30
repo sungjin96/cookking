@@ -14,7 +14,7 @@ module.exports = {
 	],
 	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		project: './tsconfig.json',
+		project: 'front/tsconfig.json',
 		ecmaFeatures: {
 			jsx: true,
 		},
@@ -23,6 +23,7 @@ module.exports = {
 	},
 	plugins: ['react', 'react-hooks', '@typescript-eslint'],
 	rules: {
+		'linebreak-style': ['error', 'windows'],
 		indent: ['error', 'tab'],
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single', { avoidEscape: true }],
