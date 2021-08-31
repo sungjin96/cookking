@@ -11,34 +11,34 @@ export const COLORS = {
     white: '#ffffff',
 
     // gray (칙칙한 것 같아서 수정중!)
-    gray_700: '#495057', //#515151
-    gray_600: '#6c757d', //#818181
-    gray_500: '#a1a1a1', //
-    gray_400: '#b7b7b7',
-    gray_300: '#dee2e6', // #dcdcdc
-    gray_200: '#e9ecef', // #eeeeee
-    gray_100: '#f8f9fa', // #f5f5f5
+    gray700: '#495057', //#515151
+    gray600: '#6c757d', //#818181
+    gray500: '#a1a1a1', //
+    gray400: '#b7b7b7',
+    gray300: '#dee2e6', // #dcdcdc
+    gray200: '#e9ecef', // #eeeeee
+    gray100: '#f8f9fa', // #f5f5f5
 
     // primary (대표 초록색)
-    primary_100: '#F4FAF8',
-    primary_200: '#EAF5F2',
-    primary_300: '#DFF0EC',
-    primary_500: '#81D8BA', // 옅은 기본 색상
-    primary_600: '#49B792', // 기본
-    primary_700: '#289A7E', // 가장 레벨이 높은 버튼이나 ui 색상
-    primary_900: '#2A6556', // 텍스트 color로만 사용
+    primary100: '#F4FAF8',
+    primary200: '#EAF5F2',
+    primary300: '#DFF0EC',
+    primary500: '#81D8BA', // 옅은 기본 색상
+    primary600: '#49B792', // 기본
+    primary700: '#289A7E', // 가장 레벨이 높은 버튼이나 ui 색상
+    primary900: '#2A6556', // 텍스트 color로만 사용
 
     // point - orange
-    orange_100: '#FFEBD8',
-    orange_300: '#FFBA76',
+    orange100: '#FFEBD8',
+    orange300: '#FFBA76',
 
     // point - pink
-    pink_100: '#FFF6F4',
-    pink_300: '#FFDFDB',
-    pink_500: '#FA6D88',
+    pink100: '#FFF6F4',
+    pink300: '#FFDFDB',
+    pink500: '#FA6D88',
 
     // error & alert & delete..
-    red_500: '#F16C5A',
+    red500: '#F16C5A',
 
     transparent: 'transparent',
 };
@@ -67,7 +67,7 @@ export const FONTS = {
     // 폰트 굵기
     fontBold: { fontFamily: 'NotoSansKR-Bold', letterSpacing: '-0.05em'},
     fontMedium: { fontFamily: 'NotoSansKR-Medium', letterSpacing: '-0.05em' },
-    fontLegular: { fontFamily: 'NotoSansKR-Legular', letterSpacing: '-0.05em' },
+    fontLegular: { fontFamily: 'NotoSansKR-Regular', letterSpacing: '-0.05em' },
     fontLight: { fontFamily: 'NotoSansKR-Light', letterSpacing: '-0.05em' },
 
     // 타이틀
@@ -77,15 +77,15 @@ export const FONTS = {
     subTitle: { fontFamily: 'NotoSansKR-Medium', fontSize: FONTSIZES.subTitle }, // 15
 
     // 서브텍스트 (info text)
-    largestSubText: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body1, color: COLORS.gray_700 }, // 17
-    subText: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body4, color: COLORS.gray_600 }, // 13
-    smallestSubText: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body5, color: COLORS.gray_400 }, // 12
+    largestSubText: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body1, color: COLORS.gray700 }, // 17
+    subText: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body4, color: COLORS.gray600 }, // 13
+    smallestSubText: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body5, color: COLORS.gray400 }, // 12
 
     // default
-    default: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body2, color: COLORS.black }, // 15 + #222222
-    defaultGray: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body2, color: COLORS.gray_700 }, // 15 + #515151
-    smallestDefault: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body3, color: COLORS.black }, // 14 + #222222
-    smallestDefaultGray: { fontFamily: 'NotoSansKR-Legular', fontSize: FONTSIZES.body3, color: COLORS.gray_700 }, // 14 + #515151
+    default: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body2, color: COLORS.black, letterSpacing: '-0.05em' }, // 15 + #222222
+    defaultGray: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body2, color: COLORS.gray700, letterSpacing: '-0.05em' }, // 15 + #515151
+    smallestDefault: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body3, color: COLORS.black, letterSpacing: '-0.05em' }, // 14 + #222222
+    smallestDefaultGray: { fontFamily: 'NotoSansKR-Regular', fontSize: FONTSIZES.body3, color: COLORS.gray700, letterSpacing: '-0.05em' }, // 14 + #515151
 };
 
 const appTheme = { COLORS, FONTSIZES, FONTS };
