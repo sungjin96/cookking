@@ -14,7 +14,7 @@ function HomeNavigator() {
 	return (
 		<Stack.Navigator>
 			<Stack.Screen name="Home" component={Home} />
-			{/* <Stack.Screen name="Count" component={Count} initialParams={{ title: 'InitialHomeTitle' }} /> */}
+			<Stack.Screen name="Count" component={Count} initialParams={{ title: 'InitialHomeTitle' }} />
 		</Stack.Navigator>
 	)
 }
