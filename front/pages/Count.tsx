@@ -1,7 +1,8 @@
 import React from 'react'
 import Container from '../components/Container'
 import { Text, TouchableOpacity } from 'react-native'
-import Button from '../components/Button'
+import Button, { ButtonText } from '../components/Button'
+import ButtonWrap from '../components/ButtonWrap'
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native'
 import { HomeNavigatorParams } from '../navigator/HomeNavigator'
 import useCount from '../hooks/useCount'
@@ -45,7 +46,15 @@ function Count() {
 					</ActionButton>
 				</Row>
 			</Container>
-			<Button title="뒤로가기" onPress={() => navigation.goBack()} />
+			<ButtonWrap>
+				<Button
+					BackgroundColor="primary700" 
+					bottomFixed
+					onPress={() => navigation.goBack()}
+				>
+					<ButtonText white>뒤로가기</ButtonText>
+				</Button>
+			</ButtonWrap>
 		</Container>
 	)
 }
