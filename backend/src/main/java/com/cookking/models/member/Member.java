@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by marathoner on 2021/08/23
@@ -49,4 +50,13 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<Search> searches;
+
+    @ManyToMany(mappedBy = "following")
+    private List<Member> follow;
+
+    @ManyToMany
+    @JoinTable(
+            name = "follow"
+    )
+    private List<Member> following;
 }

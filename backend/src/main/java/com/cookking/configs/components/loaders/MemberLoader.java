@@ -24,6 +24,7 @@ public class MemberLoader implements CommandLineRunner {
     private void loadExampleObjects() {
         if (memberRepository.count() == 0) {
             memberRepository.save(Member.builder().email("test@naver.com").loginType(LoginType.NATIVE).build());
+            memberRepository.save(Member.builder().email("test@gmail.com").loginType(LoginType.NATIVE).build());
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.cookking.models.member.dto;
 
-import com.cookking.models.member.LoginType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,25 +10,18 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 
 /**
- * Created by marathoner on 2021/08/24
+ * Created by marathoner on 2021/09/04
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CreateMemberDto {
-
-    @NotNull
+public class FollowMemberDto {
+    @Null
     @Email
     private String email;
 
-    @Null
-    private String nickName;
-
     @NotNull
-    private LoginType loginType;
-
-    @Null
-    private String token;
-
+    @Email
+    private String followingEmail;
 }
