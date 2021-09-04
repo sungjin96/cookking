@@ -1,9 +1,11 @@
 package com.cookking.services.Member;
 
-import com.cookking.mappers.CreateMemberMapper;
-import com.cookking.mappers.MemberMapper;
+import com.cookking.mappers.member.CreateMemberMapper;
+import com.cookking.mappers.member.FollowMemberMapper;
+import com.cookking.mappers.member.MemberMapper;
 import com.cookking.models.member.Member;
 import com.cookking.models.member.dto.CreateMemberDto;
+import com.cookking.models.member.dto.FollowMemberDto;
 import com.cookking.models.member.dto.MemberDto;
 import com.cookking.models.member.dto.UpdateMemberDto;
 import com.cookking.repositories.MemberRepository;
@@ -22,17 +24,21 @@ import java.util.List;
 public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
-    private final MemberMapper memberMapper;
     private final CreateMemberMapper createMemberMapper;
+    private final FollowMemberMapper followMemberMapper;
 
     @Override
-    public MemberDto findById(Long memberId) {
-        Member member = memberRepository.getById(memberId);
-        return memberMapper.toDto(member);
+    public Member findById(Long memberId) {
+        return memberRepository.getById(memberId);
     }
 
     @Override
-    public List<MemberDto> findAll() {
+    public Member findByEmail(String email) {
+        return memberRepository.getByEmail(email);
+    }
+
+    @Override
+    public List<Member> findAll() {
         return null;
     }
 
@@ -46,5 +52,18 @@ public class MemberServiceImpl implements MemberService {
     public void update(Long memberId, UpdateMemberDto updateMemberDto) {
         Member member = memberRepository.getById(memberId);
         memberRepository.save(member);
+    }
+
+    @Override
+    public void follow(FollowMemberDto followMemberDto) {
+        Member member = this.findByEmail(followMemberDto.getEmail());
+        Member following = this.findByEmail(followMemberDto.getFollowingEmail());
+        member.getFollowing().add(following);
+        memberRepository.save(member);
+    }
+
+    @Override
+    public void unFollow(FollowMemberDto followMemberDto) {
+
     }
 }

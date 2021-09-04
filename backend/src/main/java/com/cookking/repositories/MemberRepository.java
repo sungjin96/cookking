@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Created by marathoner on 2021/08/24.
  */
 public interface MemberRepository extends JpaRepository<Member, Long> {
+    public Member getByEmail(String email);
 }

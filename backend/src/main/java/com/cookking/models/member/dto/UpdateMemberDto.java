@@ -31,14 +31,4 @@ public class UpdateMemberDto {
 
     @Null
     private String token;
-
-    private String email;
-
-    private List<Alarm> alarms;
-
-    private Timestamp createdAt;
-
-    private Timestamp deletedAt;
-
-    private Timestamp updatedAt;
 }

@@ -2,6 +2,7 @@ package com.cookking.controllers.v1.member;
 
 import com.cookking.models.member.LoginType;
 import com.cookking.models.member.dto.CreateMemberDto;
+import com.cookking.models.member.dto.FollowMemberDto;
 import com.cookking.models.member.dto.UpdateMemberDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
@@ -33,6 +34,27 @@ class MemberControllerTest {
     MockMvc mockMvc;
     @Autowired
     ObjectMapper objectMapper;
+
+    private CreateMemberDto getCreateMemberDto() {
+        return CreateMemberDto.builder()
+                .email("test1@gmail.com")
+                .loginType(LoginType.NATIVE)
+                .build();
+    }
+
+    private UpdateMemberDto getUpdateMemberDto() {
+        return UpdateMemberDto.builder()
+                .id(FIRST_ID)
+                .nickName("HELLLLLOOOOOOOO")
+                .build();
+    }
+
+    private FollowMemberDto getFollowMemberDto() {
+        return FollowMemberDto.builder()
+                .email("test@naver.com")
+                .followingEmail("test@gmail.com")
+                .build();
+    }
 
     @Test
     @DisplayName("존재하는 멤버 아이디로 조회")
@@ -71,18 +93,24 @@ class MemberControllerTest {
                 .andExpect(status().isNoContent());
     }
 
-    private CreateMemberDto getCreateMemberDto() {
-        return CreateMemberDto.builder()
-                .email("test@gmail.com")
-                .loginType(LoginType.NATIVE)
-                .build();
+    @Test
+    void follow() throws Exception {
+        String followMemberDtoJson = objectMapper.writeValueAsString(getFollowMemberDto());
+
+        mockMvc.perform(post(URL + "follow")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(followMemberDtoJson))
+                .andExpect(status().isCreated());
     }
 
-    private UpdateMemberDto getUpdateMemberDto() {
-        return UpdateMemberDto.builder()
-                .id(FIRST_ID)
-                .nickName("HELLLLLOOOOOOOO")
-                .build();
+    @Test
+    void unFollow() throws Exception {
+        String followMemberDtoJson = objectMapper.writeValueAsString(getFollowMemberDto());
+
+        mockMvc.perform(post(URL + "follow")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(followMemberDtoJson))
+                .andExpect(status().isCreated());
     }
 
 

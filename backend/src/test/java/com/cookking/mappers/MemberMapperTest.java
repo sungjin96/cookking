@@ -1,8 +1,6 @@
 package com.cookking.mappers;
 
-import com.cookking.models.example.Example;
-import com.cookking.models.example.ExampleDto;
-import com.cookking.models.example.ExampleMapper;
+import com.cookking.mappers.member.CreateMemberMapper;
 import com.cookking.models.member.Member;
 import com.cookking.models.member.dto.CreateMemberDto;
 import org.junit.jupiter.api.Test;
