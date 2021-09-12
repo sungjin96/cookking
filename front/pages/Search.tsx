@@ -8,7 +8,7 @@ import Chips from '../components/SelectChips'
 import Input from '../components/Input'
 import { Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import Flag from '../components/Flag'
+import LineFlag from '../components/flag/LineFlag'
 
 function Search() {
 	const navigation = useNavigation()
@@ -26,7 +26,6 @@ function Search() {
 	])
 	return (
 		<Container>
-			<Text>Search</Text>
 			<Input/>
 			<ButtonWrap>
 				<Button
@@ -43,9 +42,7 @@ function Search() {
 				<Chips states={states} setStates={setStates}/>
 			</ButtonWrap>
 
-			<Text>Flag</Text>
-
-			<Flag />
+			<LineFlag />
 		</Container>
 	)
 }

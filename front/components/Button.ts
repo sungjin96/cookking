@@ -56,7 +56,7 @@ const Button = styled.TouchableOpacity<ButtonPropsType>`
 export const ButtonText = styled.Text<ButtonContPropsType>`
   ${FONTS.fontMedium};
   font-size: ${FONTSIZES.body3}px;
-  color: ${props => (props.white ? `${COLORS.white}` : `${COLORS.gray_700}`)};
+  color: ${props => (props.white ? `${COLORS.white}` : `${COLORS.gray700}`)};
 `
 
 
