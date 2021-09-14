@@ -1,8 +1,7 @@
 package com.cookking.controllers.v1.code;
 
-import com.cookking.models.code.dto.CodeDto;
+import com.cookking.models.code.Code;
 import com.cookking.services.codeService.CodeService;
-import com.cookking.services.example.ExampleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,8 +26,8 @@ public class CodeController {
 
     // 공통코드추가
     @PostMapping
-    public ResponseEntity createCommonCode(@RequestBody @Validated CodeDto codeDto){
-        codeService.create(codeDto);
+    public ResponseEntity createCommonCode(@RequestBody @Validated Code code){
+        codeService.create(code);
         return new ResponseEntity(HttpStatus.CREATED);
     }
 }

@@ -1,5 +1,7 @@
 package com.cookking.controllers.v1.code;
 
+import com.cookking.models.code.Code;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,8 @@ public class CodeControllerTest {
 
     @Autowired
     MockMvc mockMvc;
+    @Autowired
+    ObjectMapper objectMapper;
 
     private final String URL = "/api/v1/code/";
 
@@ -40,9 +44,21 @@ public class CodeControllerTest {
     }
 
     @Test
-    @DisplayName("공통 코드 전체조회")
+    @DisplayName("공통 코드 추가")
     void createCommonCode() throws Exception{
+        String createCodeJson = objectMapper.writeValueAsString(getCreateCommonCode());
 
+        mockMvc.perform(post(URL)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(createCodeJson))
+                .andExpect(status().isCreated());
     }
 
+    private Code getCreateCommonCode(){
+        return Code.builder()
+                .name("test")
+                .id(2L)
+                .ord(1F)
+                .build();
+    }
 }
