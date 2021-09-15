@@ -1,6 +1,9 @@
 package com.cookking.controllers.v1.code;
 
 import com.cookking.models.code.Code;
+import com.cookking.models.code.dto.CodeDto;
+import com.cookking.models.member.LoginType;
+import com.cookking.models.member.dto.CreateMemberDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,8 +16,11 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestConstructor;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
+import java.sql.Timestamp;
+
+import static java.time.LocalTime.now;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
@@ -34,23 +40,34 @@ public class CodeControllerTest {
     ObjectMapper objectMapper;
 
     private final String URL = "/api/v1/code/";
+    private final Long FIRST_ID = 2L;
 
-
-    @Test
-    @DisplayName("테스트")
-    void hello() throws Exception{
-        mockMvc.perform(get(URL + "/hello").accept(MediaType.ALL))
-                .andExpect(status().isOk());
+    private CodeDto getCreateCommonCode(){
+        return CodeDto.builder()
+                .name("test입니다???????")
+                .id(1L)
+                .ord(1F)
+                .build();
     }
+
+    private CodeDto getupdateCommonCode(){
+        return CodeDto.builder()
+                .id(3L)
+                .name("수정테스트")
+                .ord(3F)
+                .build();
+    }
+
+
     @Test
-    @DisplayName("공통 코드 조회")
+    @DisplayName("공통코드 모두 조회")
     void searchAllCode() throws Exception{
         mockMvc.perform(get(URL).accept(MediaType.ALL))
                 .andExpect(status().isOk());
     }
 
     @Test
-    @DisplayName("공통 코드 추가")
+    @DisplayName("공통코드 추가")
     void createCommonCode() throws Exception{
         String createCodeJson = objectMapper.writeValueAsString(getCreateCommonCode());
 
@@ -60,11 +77,19 @@ public class CodeControllerTest {
                 .andExpect(status().isCreated());
     }
 
-    private Code getCreateCommonCode(){
-        return Code.builder()
-                .name("test")
-                .id(2L)
-                .ord(1F)
-                .build();
+
+
+    @Test
+    @DisplayName("공통코드 수정")
+    void updateCommonCode() throws Exception{
+        CodeDto codeDto = getupdateCommonCode();
+        String updateCodeDtoJson = objectMapper.writeValueAsString(codeDto);
+
+        mockMvc.perform(put(URL + FIRST_ID)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(updateCodeDtoJson))
+                        .andExpect(status().isNoContent());
+
     }
+
 }

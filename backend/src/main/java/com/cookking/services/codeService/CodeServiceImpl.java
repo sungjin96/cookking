@@ -19,14 +19,20 @@ public class CodeServiceImpl implements CodeService{
     private final CodeRepository codeRepository;
 
 
-    // TODO : 개발중
+    // 공통 코드 생성
     @Override
     public void create(Code code) {
         codeRepository.save(code);
     }
-
+    // 공통 코드 조회
     @Override
     public List<Code> findAll() {
         return codeRepository.findAll();
+    }
+    // 공통 코드 수정
+    @Override
+    public void update(Long codeId, CodeDto codeDto) {
+      Code code = codeRepository.getById(codeId);
+      codeRepository.save(code);
     }
 }

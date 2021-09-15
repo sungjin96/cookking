@@ -21,24 +21,29 @@ import java.util.List;
 public class CodeController {
 
     private final CodeService codeService;
-
-    @GetMapping("/hello")
-    public ResponseEntity<String> hello(){
-        return new ResponseEntity<String>("hello", HttpStatus.OK);
-    }
-
+    
+    // 공통코드 모두 조회
     @GetMapping("/")
     public ResponseEntity<List<Code>> searchAllCode(){
         List<Code> getCodes = codeService.findAll();
         return new ResponseEntity(getCodes,HttpStatus.OK);
     }
-
-    // 공통코드추가
+    
+    // 공통코드 추가
     @PostMapping
     public ResponseEntity createCommonCode(@RequestBody @Validated Code code){
         codeService.create(code);
         return new ResponseEntity(HttpStatus.CREATED);
     }
+    
+    // 공통코드 수정
+    @PutMapping("/{codeId}")
+    public ResponseEntity updateCommonCode(@PathVariable("codeId") Long codeId, @RequestBody @Validated CodeDto codeDto){
+        codeService.update(codeId ,codeDto);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
+   
 
 
 }
