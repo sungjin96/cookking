@@ -1,12 +1,15 @@
 package com.cookking.controllers.v1.code;
 
 import com.cookking.models.code.Code;
+import com.cookking.models.code.dto.CodeDto;
 import com.cookking.services.codeService.CodeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 /**
@@ -24,10 +27,18 @@ public class CodeController {
         return new ResponseEntity<String>("hello", HttpStatus.OK);
     }
 
+    @GetMapping("/")
+    public ResponseEntity<List<Code>> searchAllCode(){
+        List<Code> getCodes = codeService.findAll();
+        return new ResponseEntity(getCodes,HttpStatus.OK);
+    }
+
     // 공통코드추가
     @PostMapping
     public ResponseEntity createCommonCode(@RequestBody @Validated Code code){
         codeService.create(code);
         return new ResponseEntity(HttpStatus.CREATED);
     }
+
+
 }

@@ -42,6 +42,12 @@ public class CodeControllerTest {
         mockMvc.perform(get(URL + "/hello").accept(MediaType.ALL))
                 .andExpect(status().isOk());
     }
+    @Test
+    @DisplayName("공통 코드 조회")
+    void searchAllCode() throws Exception{
+        mockMvc.perform(get(URL).accept(MediaType.ALL))
+                .andExpect(status().isOk());
+    }
 
     @Test
     @DisplayName("공통 코드 추가")

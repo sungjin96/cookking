@@ -1,6 +1,9 @@
 package com.cookking.services.codeService;
 
 import com.cookking.models.code.Code;
+import com.cookking.models.code.dto.CodeDto;
+
+import java.util.List;
 
 
 /**
@@ -9,4 +12,5 @@ import com.cookking.models.code.Code;
 public interface CodeService {
 
     public void create(Code code);
+    public List<Code> findAll();
 }

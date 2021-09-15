@@ -6,6 +6,8 @@ import com.cookking.repositories.CodeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  *  create by kimminsang 2021/09/14
  */
@@ -21,5 +23,10 @@ public class CodeServiceImpl implements CodeService{
     @Override
     public void create(Code code) {
         codeRepository.save(code);
+    }
+
+    @Override
+    public List<Code> findAll() {
+        return codeRepository.findAll();
     }
 }
