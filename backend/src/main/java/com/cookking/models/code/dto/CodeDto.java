@@ -18,7 +18,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @Builder
 public class CodeDto {
-    @Null
+    @NotNull
     private Long id;
 
     @NotNull
