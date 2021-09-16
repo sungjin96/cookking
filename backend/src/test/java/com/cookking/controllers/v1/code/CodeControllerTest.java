@@ -78,7 +78,6 @@ public class CodeControllerTest {
     }
 
 
-
     @Test
     @DisplayName("공통코드 수정")
     void updateCommonCode() throws Exception{
