@@ -11,7 +11,7 @@ const ButtonSize = {
 // 효율적이고 간편한 방법으로 계속 개선할 예정
 type ButtonPropsType = {
     // color
-    BackgroundColor?: keyof typeof COLORS
+    backgroundColor?: keyof typeof COLORS
 
     // type
     text?: boolean;
@@ -38,9 +38,9 @@ const Button = styled.TouchableOpacity<ButtonPropsType>`
   justify-content: center;
   height: 32px;
   border-radius: 4px;
-  background-color: ${COLORS.gray_200};
+  background-color: ${COLORS.gray200};
 
-  ${({BackgroundColor}) => BackgroundColor && css`background-color: ${COLORS[BackgroundColor]}`};
+  ${({backgroundColor}) => backgroundColor && css`background-color: ${COLORS[backgroundColor]}`};
 
   ${({heightSize}) => heightSize && css`height: ${ButtonSize[heightSize]}px`};
 
@@ -56,7 +56,7 @@ const Button = styled.TouchableOpacity<ButtonPropsType>`
 export const ButtonText = styled.Text<ButtonContPropsType>`
   ${FONTS.fontMedium};
   font-size: ${FONTSIZES.body3}px;
-  color: ${props => (props.white ? `${COLORS.white}` : `${COLORS.gray_700}`)};
+  color: ${props => (props.white ? `${COLORS.white}` : `${COLORS.gray700}`)};
 `
 
 
