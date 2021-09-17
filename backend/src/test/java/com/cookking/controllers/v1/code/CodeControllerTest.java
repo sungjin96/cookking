@@ -40,7 +40,7 @@ public class CodeControllerTest {
     ObjectMapper objectMapper;
 
     private final String URL = "/api/v1/code/";
-    private final Long FIRST_ID = 2L;
+    private final Long FIRST_ID = 1L;
 
     private CodeDto getCreateCommonCode(){
         return CodeDto.builder()

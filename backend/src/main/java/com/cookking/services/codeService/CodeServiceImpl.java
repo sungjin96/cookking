@@ -1,5 +1,6 @@
 package com.cookking.services.codeService;
 
+import com.cookking.mappers.code.CodeMapper;
 import com.cookking.models.code.Code;
 import com.cookking.models.code.dto.CodeDto;
 import com.cookking.repositories.CodeRepository;
@@ -15,20 +16,22 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CodeServiceImpl implements CodeService{
 
-
     private final CodeRepository codeRepository;
-
+    private final CodeMapper codeMapper;
 
     // 공통 코드 생성
     @Override
-    public void create(Code code) {
+    public void create(CodeDto codeDto) {
+        Code code = codeMapper.toEntity(codeDto);
         codeRepository.save(code);
     }
+
     // 공통 코드 조회
     @Override
     public List<Code> findAll() {
         return codeRepository.findAll();
     }
+
     // 공통 코드 수정
     @Override
     public void update(Long codeId, CodeDto codeDto) {

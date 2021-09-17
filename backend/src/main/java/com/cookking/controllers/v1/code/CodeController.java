@@ -23,7 +23,7 @@ public class CodeController {
     private final CodeService codeService;
     
     // 공통코드 모두 조회
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Code>> searchAllCode(){
         List<Code> getCodes = codeService.findAll();
         return new ResponseEntity(getCodes,HttpStatus.OK);
@@ -31,8 +31,8 @@ public class CodeController {
     
     // 공통코드 추가
     @PostMapping
-    public ResponseEntity createCommonCode(@RequestBody @Validated Code code){
-        codeService.create(code);
+    public ResponseEntity createCommonCode(@RequestBody @Validated CodeDto codeDto){
+        codeService.create(codeDto);
         return new ResponseEntity(HttpStatus.CREATED);
     }
     

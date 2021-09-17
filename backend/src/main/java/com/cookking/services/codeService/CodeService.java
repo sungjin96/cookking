@@ -12,7 +12,7 @@ import java.util.List;
 public interface CodeService {
     
     //공통코드 추가
-    public void create(Code code);
+    public void create(CodeDto codeDto);
     //공통코드 모두 조회
     public List<Code> findAll();
     //공통코드 수정
