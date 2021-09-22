@@ -1,7 +1,7 @@
 package com.cookking.controllers.v1.code;
 
 import com.cookking.models.code.Code;
-import com.cookking.models.code.dto.CodeDto;
+import com.cookking.models.code.dto.CreateCodeDto;
 import com.cookking.services.codeService.CodeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,7 +21,14 @@ import java.util.List;
 public class CodeController {
 
     private final CodeService codeService;
-    
+
+
+    // 공통코드 추가
+    @PostMapping
+    public ResponseEntity createCommonCode(@RequestBody @Validated CreateCodeDto createCodeDto){
+        codeService.create(createCodeDto);
+        return new ResponseEntity(HttpStatus.CREATED);
+    }
     // 공통코드 모두 조회
     @GetMapping
     public ResponseEntity<List<Code>> searchAllCode(){
@@ -29,21 +36,6 @@ public class CodeController {
         return new ResponseEntity(getCodes,HttpStatus.OK);
     }
     
-    // 공통코드 추가
-    @PostMapping
-    public ResponseEntity createCommonCode(@RequestBody @Validated CodeDto codeDto){
-        codeService.create(codeDto);
-        return new ResponseEntity(HttpStatus.CREATED);
-    }
-    
-    // 공통코드 수정
-    @PutMapping("/{codeId}")
-    public ResponseEntity updateCommonCode(@PathVariable("codeId") Long codeId, @RequestBody @Validated CodeDto codeDto){
-        codeService.update(codeId ,codeDto);
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
-    }
-
-   
 
 
 }
