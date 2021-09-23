@@ -20,9 +20,6 @@ import java.sql.Timestamp;
 @Builder
 public class CreateCodeDto {
     @NotNull
-    private Long id;
-
-    @NotNull
     private Long parents_id;
 
     @NotNull
@@ -30,7 +27,4 @@ public class CreateCodeDto {
 
     @NotNull
     private Float ord;
-
-    @Null
-    private Timestamp createdAt;
 }

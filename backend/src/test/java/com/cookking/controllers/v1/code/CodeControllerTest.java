@@ -1,6 +1,6 @@
 package com.cookking.controllers.v1.code;
 
-import com.cookking.models.code.dto.CodeDto;
+import com.cookking.models.code.dto.CreateCodeDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,9 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestConstructor;
 import org.springframework.test.web.servlet.MockMvc;
-
-
-
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -36,10 +33,9 @@ public class CodeControllerTest {
 
     private final String URL = "/api/v1/code/";
 
-    private CodeDto getCreateCommonCode(){
-        return CodeDto.builder()
+    private CreateCodeDto getCreateCommonCode(){
+        return CreateCodeDto.builder()
                 .name("test")
-                .id(1L)
                 .ord(1F)
                 .build();
     }

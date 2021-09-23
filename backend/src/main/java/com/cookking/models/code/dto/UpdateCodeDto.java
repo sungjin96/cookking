@@ -17,7 +17,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CodeDto {
+public class UpdateCodeDto {
     @NotNull
     private Long id;
 
@@ -31,9 +31,6 @@ public class CodeDto {
     private Float ord;
 
     @Null
-    private Timestamp createdAt;
-    @Null
     private Timestamp updatedAt;
-    @Null
-    private Timestamp deletedAt;
+
 }
