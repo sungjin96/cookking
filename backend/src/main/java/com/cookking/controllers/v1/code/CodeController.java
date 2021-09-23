@@ -2,7 +2,7 @@ package com.cookking.controllers.v1.code;
 
 import com.cookking.models.code.Code;
 import com.cookking.models.code.dto.CreateCodeDto;
-import com.cookking.services.codeService.CodeService;
+import com.cookking.services.code.CodeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
