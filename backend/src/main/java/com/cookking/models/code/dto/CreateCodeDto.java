@@ -11,13 +11,14 @@ import java.sql.Timestamp;
 
 
 /**
- * Created by kimminsang on 2021/08/29
+ * Created by kimminsang on 2021/09/22
  */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CodeDto {
+public class CreateCodeDto {
     @NotNull
     private Long id;
 
@@ -32,8 +33,4 @@ public class CodeDto {
 
     @Null
     private Timestamp createdAt;
-    @Null
-    private Timestamp updatedAt;
-    @Null
-    private Timestamp deletedAt;
 }
