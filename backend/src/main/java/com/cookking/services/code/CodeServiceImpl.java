@@ -5,7 +5,6 @@ import com.cookking.models.code.Code;
 import com.cookking.models.code.dto.CreateCodeDto;
 import com.cookking.repositories.CodeRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
 /**
  *  create by kimminsang 2021/09/14
  */
-@Slf4j
+
 @Service
 @RequiredArgsConstructor
 public class CodeServiceImpl implements CodeService{
