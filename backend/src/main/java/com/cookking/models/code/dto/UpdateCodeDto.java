@@ -22,7 +22,7 @@ public class UpdateCodeDto {
     private Long id;
 
     @NotNull
-    private Long parents_id;
+    private Long parentsId;
 
     @NotNull
     private String name;
@@ -30,7 +30,5 @@ public class UpdateCodeDto {
     @NotNull
     private Float ord;
 
-    @Null
-    private Timestamp updatedAt;
 
 }

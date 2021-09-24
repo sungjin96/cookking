@@ -20,7 +20,7 @@ import java.sql.Timestamp;
 @Builder
 public class CreateCodeDto {
     @NotNull
-    private Long parents_id;
+    private Long parentsId;
 
     @NotNull
     private String name;
