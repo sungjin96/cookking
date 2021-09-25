@@ -13,4 +13,8 @@ pluginManagement {
     }
 }
 rootProject.name = 'Cookking'
+include 'module-common'
+include 'module-main'
+include 'module-mail'
+include 'module-stomp'
 
