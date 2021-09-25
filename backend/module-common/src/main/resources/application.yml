@@ -18,6 +18,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: warn
 ---
 spring:
   config:
@@ -29,6 +35,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+
+  logging:
+    level:
+      org:
+        hibernate:
+          SQL: debug
 ---
 spring:
   config:
@@ -62,9 +74,3 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
-
-  logging:
-    level:
-      org:
-        hibernate:
-          SQL: debug
