@@ -5,5 +5,5 @@ package com.cookking.models;
  */
 
 // TODO : 임시 entity
-public class FIle {
+public class File {
 }
