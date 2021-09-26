@@ -63,3 +63,19 @@ services:
       - db
     links:
       - db
+
+  file_server:
+    build:
+      context: ""
+      dockerfile: file.Dockerfile
+    network_mode: bridge
+    container_name: cokking_file_server
+    expose:
+      - 8083
+    ports:
+      "8083:8083"
+    restart: unless-stopped
+    depends_on:
+      - db
+    links:
+      - db
