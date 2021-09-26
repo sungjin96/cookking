@@ -31,7 +31,7 @@ services:
       - db
     links:
       - db
-      -
+
   mail_server:
     build:
       context: ""
@@ -51,7 +51,7 @@ services:
   stomp_server:
     build:
       context: ""
-      dockerfile: mail.Dockerfile
+      dockerfile: stomp.Dockerfile
     network_mode: bridge
     container_name: cokking_main_server
     expose:

@@ -79,3 +79,9 @@ project(':module-stomp') {
         implementation project(':module-common')
     }
 }
+
+project(':module-file') {
+    dependencies {
+        implementation project(':module-common')
+    }
+}
