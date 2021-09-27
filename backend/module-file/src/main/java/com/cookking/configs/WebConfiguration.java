@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfiguration implements WebMvcConfigurer {
 
+    // TODO : 크로스도메인 = com.cookking.*
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
