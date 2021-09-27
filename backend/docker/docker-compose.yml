@@ -1,0 +1,65 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:13
+    restart: always
+    network_mode: bridge
+    container_name: cookking_prod_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=cookking
+      - POSTGRES_USER=cookking
+      - POSTGRES_PASSWORD=cookking!@#
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8
+    volumes:
+      - ../database/data:/var/lib/postgresql/data
+
+  main_server:
+    build:
+      context: ""
+      dockerfile: main.Dockerfile
+    network_mode: bridge
+    container_name: cokking_main_server
+    expose:
+      - 8080
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    depends_on:
+      - db
+    links:
+      - db
+
+  mail_server:
+    build:
+      context: ""
+      dockerfile: mail.Dockerfile
+    network_mode: bridge
+    container_name: cokking_main_server
+    expose:
+      - 8081
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+    depends_on:
+      - db
+    links:
+      - db
+
+  stomp_server:
+    build:
+      context: ""
+      dockerfile: stomp.Dockerfile
+    network_mode: bridge
+    container_name: cokking_main_server
+    expose:
+      - 8082
+    ports:
+      - "8082:8082"
+    restart: unless-stopped
+    depends_on:
+      - db
+    links:
+      - db

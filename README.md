@@ -1,5 +1,5 @@
 ## Version
-1. jdk - 14
+1. jdk - 16
 2. node - 14
 
 ## 공통 세팅
@@ -32,6 +32,13 @@ docker ps -a
 docker rm -f db
 ```
 위 명령어로 삭제 필요
+
+
+Develop이 개발용 브랜치
+
+## Profiles
+
+만약 local에서 실행하면 profile 설정을 local 로 설정 
 
 ---
 # 프론트
