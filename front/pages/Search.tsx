@@ -8,7 +8,7 @@ import Chips from '../components/SelectChips'
 import Input from '../components/Input'
 import { Text } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import LineFlag from '../components/flag/LineFlag'
+import LineFlag from '../components/Flag/LineFlag'
 
 function Search() {
 	const navigation = useNavigation()
@@ -26,7 +26,11 @@ function Search() {
 	])
 	return (
 		<Container>
-			<Input/>
+			<Text>Search</Text>
+			<Input
+				placeholder='입력해줘'
+				searchIcon
+			/>
 			<ButtonWrap>
 				<Button
 					onPress={() => navigation.navigate('Count', { title: '서치에서 눌렀다 임마!' })}
@@ -41,6 +45,8 @@ function Search() {
 			<ButtonWrap>
 				<Chips states={states} setStates={setStates}/>
 			</ButtonWrap>
+
+			<Text>Flag</Text>
 
 			<LineFlag />
 		</Container>
