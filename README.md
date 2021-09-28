@@ -9,7 +9,7 @@
 # 백엔드
 ## 백엔드 실행 방법
 ```
-cd backend; docker-compose up --build -d
+cd backend/docker; docker-compose up --build -d
 ```
 ## 주소
 http//localhost:8080
