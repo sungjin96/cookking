@@ -40,6 +40,12 @@ Develop이 개발용 브랜치
 
 만약 local에서 실행하면 profile 설정을 local 로 설정 
 
+## Backend Structure
+- module-stomp
+- module-main
+- module-file
+- module-common
+
 ---
 # 프론트
 ## 프론트 실행 방법
