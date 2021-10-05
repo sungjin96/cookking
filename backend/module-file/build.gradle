@@ -12,8 +12,15 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    implementation 'commons-io:commons-io:2.6'
+
+    compileOnly 'org.projectlombok:lombok'
+    runtimeOnly 'org.springframework.boot:springboot-devtools'
+    annotationProcessor 'org.projectlombok:lombok'
 }
 
 test {
     useJUnitPlatform()
+
 }
